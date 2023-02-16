@@ -1,0 +1,147 @@
+@import "./_variables";
+@import "./_resets";
+
+@mixin centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body{
+  background-color: $color-main-bg;
+  height: 100vh;
+  font-family: $font-outfit;
+}
+
+p{
+  color: $color-soft-blue;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+h2{
+  color: $color-white;
+  font-weight: 800;
+}
+
+hr{
+  border:1px solid $color-line
+}
+
+.container{
+  @include centered;
+  padding: $padding-lg;
+  background-color: $color-card-bg;
+  border-radius: $border-radius;
+  max-width: 350px;
+  width: 90%;
+  font-size: 1rem;
+  transition: 1s;
+
+  & > *:not(:last-child){
+    margin-bottom: $margin-sm;
+  }
+
+  & > img{
+    width: 100%;
+    border-radius: $border-radius;
+  }
+
+  
+}
+
+.details{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & > *{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: $margin-xs;
+  }
+
+  & .balance{
+    color: $color-cyan;
+
+    h4 {
+      margin-left: $margin-sm;
+    }
+  }
+
+  & .days p{
+    margin-left: $margin-sm;
+  }
+}
+
+.profile{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & img{
+    border: 2px solid $color-white;
+    border-radius: 50%;
+    width: 2rem;
+  }
+
+  & p{
+    margin-left: $margin-sm;
+    font-weight: 300;
+    font-size: 1rem;
+  }
+
+  & span{
+    color: $color-white;
+  }
+}
+
+@media only screen and (max-width: $mobile){
+  html{
+    font-size: 14px;
+  }
+
+  .profile{
+    flex-direction: column;
+    text-align: center;
+    
+    & img{
+      margin-bottom: $margin-xs;
+    }
+
+    & p{
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  html{
+    font-size: 20px;
+  }
+
+  .container{
+    max-width: 400px;
+  }
+}
+
+.attribution{
+  font-size: .8rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  color: $color-white;
+  text-align: center;
+  padding: $padding-sm;
+  width: 90%;
+  max-width: 500px;
+
+  & a{
+    color: $color-cyan;
+  }
+}
